@@ -3,7 +3,7 @@ import { View, Button, TextInput, StyleSheet, Text } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { formatDate } from './util';
 
-class AddFridge extends Component {
+export default class AddFridge extends Component {
     state = {
         title: '',
         date: Date.now(),
@@ -70,7 +70,6 @@ class AddFridge extends Component {
         );
     }
 }
-export default AddFridge;
 
 const styles = StyleSheet.create({
     formBox: {

@@ -3,27 +3,17 @@ import { View, Button, StyleSheet } from "react-native";
 import { FlatList } from "react-native";
 import Card from "./Card";
 import moment from "moment";
+import { getAllFridges } from "./FridgeService";
 
-class EventList extends Component {
+export default class EventList extends Component {
     state = {
-        events: [],
+        fridges: [],
     };
 
-    componentDidMount() {
-        const events = require("./data.json").events.map(item => ({
-            ...item, //всички останали свойства
-            date: moment(item.date, "DD/MM/YYYY HH:mm").toDate()
-        }));
-        this.setState({ events });
-
-        setInterval(() => {
-            this.setState({
-                events: this.state.events.map(item => ({
-                    ...item,
-                    updateTime: Date.now()
-                }))
-            })
-        }, 1000); //1000 милисекунди = 1 секунда
+    async componentDidMount() {
+        var fridges = await getAllFridges();
+        this.setState({ fridges });
+        console.log(fridges);
     }
 
     render() {
@@ -31,8 +21,8 @@ class EventList extends Component {
             <View
                 style={styles.listView}>
                 <FlatList
-                    data={this.state.events}
-                    renderItem={({ item }) => <Card eventItem={item} />}
+                    data={this.state.fridges}
+                    renderItem={({ item }) => <Card item={item} />}
                 />
                 <Button
                     onPress={() => this.props.navigation.navigate("Fridge List")}
@@ -43,8 +33,6 @@ class EventList extends Component {
         );
     }
 }
-
-export default EventList;
 
 const styles = StyleSheet.create({
     eventList: {

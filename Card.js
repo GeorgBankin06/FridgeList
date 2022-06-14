@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { formatDate, getCountdownParts } from './util';
 
-export default function Card({ eventItem }) {
+export default function Card({ item }) {
     return (
         <View style={styles.eventCard}>
             <View style={styles.cardHeader}>
-                <Text style={styles.title}>{eventItem.title}</Text>
-                <Text style={styles.date}>{formatDate(eventItem.date)}</Text>
+                <Text style={styles.title}>{item.name}</Text>
+                <Text style={styles.date}>{formatDate(item.date)}</Text>
             </View>
 
             <View style={styles.counterContainer}>
-                <Text style={styles.description}>{eventItem.description}</Text>
+                <Text style={styles.description}>{item.model}</Text>
             </View>
         </View>
     );
