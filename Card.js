@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import {formatDate, getCountdownParts} from './util';
+import { formatDate, getCountdownParts } from './util';
 
-export default function EventCard({ eventItem }) {
-    const countdown = getCountdownParts(eventItem.date);
-
+export default function Card({ eventItem }) {
     return (
         <View style={styles.eventCard}>
-            <View style={styles.cardHeader}> 
+            <View style={styles.cardHeader}>
                 <Text style={styles.title}>{eventItem.title}</Text>
                 <Text style={styles.date}>{formatDate(eventItem.date)}</Text>
             </View>
-            
+
             <View style={styles.counterContainer}>
                 <Text style={styles.description}>{eventItem.description}</Text>
             </View>
@@ -50,5 +48,5 @@ const styles = StyleSheet.create({
         width: '30%',
         textAlign: 'right'
     },
-    
+
 });
