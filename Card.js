@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { round } from 'react-native-reanimated';
 import { formatDate, getCountdownParts } from './util';
 
 export default function Card({ item }) {
@@ -19,22 +20,25 @@ export default function Card({ item }) {
 
 const styles = StyleSheet.create({
     eventCard: {
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: 'black',
-        marginBottom: 16,
-        padding: 16,
-        backgroundColor: '#04b032',
-        width: '100%'
+        borderRadius: 25,
+        marginBottom: 25,
+        padding: 30,
+        backgroundColor: '#36413d',
+        width: '100%',
     },
     cardHeader: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flexWrap: "wrap",
     },
     title: {
-        fontSize: 48,
+        fontSize: 50,
         color: '#fff',
         textAlign: 'left',
-        width: '70%'
+        width: '70%',
+        
     },
     description: {
         fontSize: 24,
