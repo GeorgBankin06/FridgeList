@@ -21,3 +21,25 @@ export async function getAllFridges() {
         });
     });
 }
+
+export async function getProducts(fridgeId) {
+    console.log(fridgeId);
+    var options = {
+        method: 'GET',
+        url: url + '/' + fridgeId,
+        headers:
+        {
+            'cache-control': 'no-cache',
+            'x-apikey': api
+        }
+    };
+
+    return new Promise((resolve, reject) => {
+        request(options, function (error, response, body) {
+            if (error) reject(error);
+            var jsonBody = JSON.parse(body);
+            console.log(jsonBody["products"]);
+            resolve(jsonBody["products"]);
+        });
+    });
+}

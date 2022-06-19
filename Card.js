@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import { formatDate, getCountdownParts } from './util';
 
-export default function Card({ item }) {
+export default function Card({ item, navigation }) {
     return (
         <View style={styles.eventCard}>
             <View style={styles.cardHeader}>
                 <Text style={styles.title}>{item.name}</Text>
-                <Text style={styles.date}>{formatDate(item.date)}</Text>
+                <View>
+                    <Button title='Products' onPress={() => {
+                        console.log(item.id);
+                        navigation.navigate("Product List", { id: item._id });
+                    }} />
+                </View>
             </View>
 
             <View style={styles.counterContainer}>

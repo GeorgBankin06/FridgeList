@@ -5,7 +5,7 @@ import Card from "./Card";
 import moment from "moment";
 import { getAllFridges } from "./FridgeService";
 
-export default class EventList extends Component {
+export default class Fridges extends Component {
     state = {
         fridges: [],
     };
@@ -22,7 +22,7 @@ export default class EventList extends Component {
                 style={styles.listView}>
                 <FlatList
                     data={this.state.fridges}
-                    renderItem={({ item }) => <Card item={item} />}
+                    renderItem={({ item }) => <Card item={item} navigation={this.props.navigation} />}
                 />
                 <Button
                     onPress={() => this.props.navigation.navigate("Fridge List")}
