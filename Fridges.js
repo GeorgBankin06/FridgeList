@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
     },
     listView: {
-        paddingBottom: 40
+        paddingBottom: 40,
+        alignItems: 'center',
     }
 });
