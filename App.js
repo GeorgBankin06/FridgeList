@@ -1,8 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import EventList from './Fridges';
+import Fridges from './Fridges';
 import AddFridge from "./AddFridge";
+import Products from "./Products";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -11,8 +12,8 @@ export default function App() {
             <Stack.Navigator initialRouteName="EventList">
                 <Stack.Screen
                     name="Fridges"
-                    component={EventList}
-                    options={{ title: "Your Firdges" }}
+                    component={Fridges}
+                    options={{ title: "Your Fridges" }}
                 />
                 <Stack.Screen
                     name="Fridge List"
@@ -21,8 +22,8 @@ export default function App() {
                 />
                 <Stack.Screen
                     name="Product List"
-                    component={EventList}
-                    options={{ title: "Add Product" }}
+                    component={Products}
+                    options={{ title: "Products" }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
