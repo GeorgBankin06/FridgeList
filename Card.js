@@ -10,12 +10,12 @@ export default function Card({ item, navigation }) {
             </View>
             <View style={styles.counterContainer}>
                 <Text style={styles.description}>{item.model}</Text>
-                    <View style={styles.button}>
-                        <Button title='Products' onPress={() => {
+                <View style={styles.button}>
+                    <Button title='Products' onPress={() => {
                         console.log(item.id);
                         navigation.navigate("Product List", { id: item._id });
-                        }} />
-                    <View/>
+                    }} />
+                    <View />
                 </View>
             </View>
         </View>
@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
         width: '30%',
         textAlign: 'right'
     },
-    counterContainer:{
+    counterContainer: {
         display: 'flex',
         justifyContent: 'space-between',
-        flexDirection:'row'
+        flexDirection: 'row'
     },
-    button:{
-        
+    button: {
+
     }
 });

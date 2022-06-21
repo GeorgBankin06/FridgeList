@@ -43,3 +43,30 @@ export async function getProducts(fridgeId) {
         });
     });
 }
+
+export async function createProduct(productName, expiryDate, id) {
+    console.log(url + '/' + id);
+    var options = {
+        method: 'PUT',
+        url: url + '/' + id,
+        headers:
+        {
+            'cache-control': 'no-cache',
+            'x-apikey': api,
+            'content-type': 'application/json'
+        },
+        body: {
+            products: {
+                "productName": productName,
+                "expiryDate": expiryDate
+            }
+        },
+        json: true
+    };
+
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+
+        console.log(body);
+    });
+}

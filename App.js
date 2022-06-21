@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Fridges from './Fridges';
 import AddFridge from "./AddFridge";
 import Products from "./Products";
+import AddProduct from "./AddProduct";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -24,6 +25,10 @@ export default function App() {
                     name="Product List"
                     component={Products}
                     options={{ title: "Products" }}
+                />
+                <Stack.Screen
+                    name="Add Product"
+                    component={AddProduct}
                 />
             </Stack.Navigator>
         </NavigationContainer>
